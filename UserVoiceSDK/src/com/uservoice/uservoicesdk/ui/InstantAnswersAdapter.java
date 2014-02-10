@@ -272,19 +272,20 @@ public abstract class InstantAnswersAdapter extends BaseAdapter implements ViewG
             state = State.INIT_LOADING;
             notifyDataSetChanged();
             Deflection.setSearchText(query);
-            Article.loadInstantAnswers(query, new DefaultCallback<List<BaseModel>>(context) {
-                @Override
-                public void onModel(List<BaseModel> model) {
-                    List<BaseModel> results = model.subList(0, Math.min(model.size(), 3));
-                    Deflection.trackSearchDeflection(results, deflectingType);
-                    instantAnswers = model;
-                    if (instantAnswers.isEmpty())
-                        state = State.DETAILS;
-                    else
-                        state = State.INSTANT_ANSWERS;
-                    notifyDataSetChanged();
-                }
-            });
+//            Article.loadInstantAnswers(query, new DefaultCallback<List<BaseModel>>(context) {
+//                @Override
+//                public void onModel(List<BaseModel> model) {
+//                    List<BaseModel> results = model.subList(0, Math.min(model.size(), 3));
+//                    Deflection.trackSearchDeflection(results, deflectingType);
+//                    instantAnswers = model;
+//                    if (instantAnswers.isEmpty())
+            instantAnswers = new ArrayList<BaseModel>();
+            state = State.DETAILS;
+//                    else
+//                        state = State.INSTANT_ANSWERS;
+            notifyDataSetChanged();
+//                }
+//            });
         } else if (state == State.INSTANT_ANSWERS) {
             state = State.DETAILS;
             notifyDataSetChanged();
