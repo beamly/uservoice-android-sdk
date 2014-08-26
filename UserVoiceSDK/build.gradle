@@ -6,7 +6,9 @@ apply plugin: 'android-library'
 dependencies {
   compile 'com.android.support:support-v13:18.0.+'
   compile 'oauth.signpost:signpost-core:1.2.1.2'
-  compile 'oauth.signpost:signpost-commonshttp4:1.2.1.2'
+  compile ('oauth.signpost:signpost-commonshttp4:1.2.1.2') {
+      exclude(group: 'org.apache.httpcomponents', module: 'httpclient')
+  }
   compile 'commons-codec:commons-codec:1.8'
 }
 
