@@ -6,5 +6,5 @@ out
 .idea/workspace.xml
 .settings
 proguard_logs
-*.iml
+UserVoiceSDK/*.iml
 build
